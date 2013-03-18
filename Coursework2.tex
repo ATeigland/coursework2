@@ -22,14 +22,14 @@
 \begin{spacing}{1.1}
 \maketitle
 \section{Introduction}
-Gyroscopes are considered important devices in many household products. Amongst them are both the automotive industry, where gyroscopes are applied to improve both comfort and safety, and hand held devices like smart phones and tablets.
+Gyroscopes are considered important devices in many household products. Amongst them are both the automotive industry, where gyroscopes are applied to improve both comfort and safety, and hand held devices like smart phones, tablets and in devices with image stabilization.
 
 Several designs of the gyroscope has been proposed, but all pose either reliability issues or very complex processing is required compared to designs utilising some sort of vibratory sensing. The vibratory design relies on the Coriolis force acting on a vibrating mass that is, most commonly, optically or capacitively sensed.
 
 In this paper we will optimise a design for a 2 degree of freedom (DOF) MEMS gyroscope. The design of such a device is shown in figure *. In the first part we will derive expressions for some of the parameters we will consider and apply some design constraints to these to arrive at a final design for the device.
 
 \section{Derivations of device operation}
-As we see from figure *, the device has beams acting as springs in both the drive and sense directions. We will consider these as cantilevers with a load applied to the end. Doing so yields the spring constant for a single beam expressed in * for a single beam. Expanding this into * we arrive at an expression for the spring constant of the total system in both drive and sense directions by assuming that the 4 beams are identical. In these expressions E is the Youngs modulus and w, h and l the width, height and length of the beams indicated on figure *.
+As we see from figure *, the device has beams acting as springs in both the drive and sense directions. We will consider these as cantilevers with a load applied to the end. Doing so yields the spring constant for a single beam expressed in equation \ref{eq:ksinglebeam} for a single beam. Expanding this into equation \ref{eq:kyorx} for the drive or sense directions, we arrive at an expression for the spring constant of the total system in both drive and sense directions by assuming that the 4 beams acting in each direction are identical. In these expressions E is the Youngs modulus and w, h and l the width, height and length of the beams indicated on figure *.
 
 \begin{equation}
 k_{single beam} = \dfrac{1}{4} \dfrac{E h w^3}{l^3}
@@ -40,7 +40,7 @@ k_{i,total} = 4 k_{single beam} = \dfrac{E h w_i^3}{l_i^3}
 \label{eq:kyorx}
 \end{equation}
 
-With the proof mass oscillating in the drive direction one can describe the device as a 2-DOF vibratory system. The resulting equations of motions showed in * and *. Here, $\omega_i$ is the resonance frequency in the i direction, $Q_i = \dfrac{m_i \omega_i}{b_i}$ is the quality factor, $b_i$ the damping factor, $\Omega$ the external rotation frequency and $F_d$ the electrostatic driving force. d and s subscripts denote sense (\textbf{x}) and drive (\textbf{y}) directions, respectively.
+With the proof mass oscillating in the drive direction one can describe the device as a 2-DOF vibratory system. The resulting equations of motions showed in equations \ref{eq:motiondrivedirection} and \ref{eq:motionsensedirection}. Here, $\omega_i$ is the resonance frequency in the i direction, $Q_i = \dfrac{m_i \omega_i}{b_i}$ is the quality factor, $b_i$ the damping factor, $\Omega$ the external rotation frequency and $F_d$ the electrostatic driving force. d and s subscripts denote sense (\textbf{x}) and drive (\textbf{y}) directions, respectively.
 
 \begin{equation}
 \ddot{y}+\dfrac{\omega_d}{Q_d} \dot{y} + \omega^2 = \dfrac{F_d}{m} \sin(\omega_d t)
@@ -54,11 +54,13 @@ With the proof mass oscillating in the drive direction one can describe the devi
 Since gyroscopes generally are underdamped, it is reasonable to assume that the drive direction amplitude can be modelled as below.
 
 \begin{equation}
-y(t) = A_0 \sin(\omega_d t) = Q_d \dfrac{F_d}{k_y}
+y(t) = A_0 \sin(\omega_d t) = Q_d \dfrac{F_d}{k_y} \sin{\omega_d t}
 \label{eq:yamplitudeast}
 \end{equation}
 
-By solving the system of differential equations\footnote{These expressions were found using Mathematica.} above, we get the following expressions for the displacement and also a phase relative to the drive frequency.
+By solving the system of differential equations\footnote{These expressions were found using Mathematica, and are identical to the once presented in %citation needed.
+} 
+above, we get the following expressions for the displacement and also a phase relative to the drive frequency.
 
 \begin{equation}
 x(t) = \dfrac{2 \Omega \cdot A_0 \omega_d}{\omega_s^2 \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}} \cdot \sin(\omega_d t - \varphi)
@@ -70,7 +72,7 @@ x(t) = \dfrac{2 \Omega \cdot A_0 \omega_d}{\omega_s^2 \sqrt{\left(1-\left(\dfrac
 \end{equation}
 
 \begin{equation}
-C(\omega) = \dfrac{1}{\omega_s^2 \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}}
+C(\omega) = \dfrac{1}{ \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}}
 \label{eq:constant}
 \end{equation}
 
@@ -79,7 +81,38 @@ C(\omega) = \dfrac{1}{\omega_s^2 \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\
 \label{eq:absolutedisplacementsense}
 \end{equation}
 
-In * we see the bandwidth of a gyroscope at resonance, and by inserting into \ref{eq:absolutedisplacementsense} we can analyse the bandwidth-sensitivity trade-off for the device.
+In equation \ref{eq:bandwith} we see the bandwidth of a gyroscope at resonance, and by inserting into equation  \ref{eq:absolutedisplacementsense} we can analyse the bandwidth-sensitivity trade-off for the device. As seen in equation \ref{eq:bandwithsensitivitytradeoff}, the sensitivity of the device is heavily reliant on the bandwidth, in fact there is an inverse square dependence. This means that a narrow bandwidth is required. As the device is operated at ambient conditions, we will have to accept a loss in sensitivity as it is very difficult to achieve narrow bandwidths here.
+
+\begin{equation}
+B.W.= \dfrac{\omega_i}{Q_i}
+\label{eq:bandwith}
+\end{equation}
+\begin{equation}
+\dfrac{X}{\Omega}=\dfrac{2 \cdot A_0 \cdot C (\omega)}{\omega_s^2}=\dfrac{2 \cdot A_0 \cdot C (\omega)}{B.W.^2 \cdot Q_s^2}
+\label{eq:bandwithsensitivitytradeoff}
+\end{equation}
+
+In addition, we need to consider the noise in the system. In this case, thermal noise will be present, caused by the Brownian force which can be expressed as in equation \ref{eq:BrownianForce}. By equating this with the Coriolis force, equation \ref{eq:Coriolisforce}, acting on the vibrating mass, we get an expression for the noise in the system, shown in equation \ref{eq:browniannoise}.
+
+\begin{equation}
+\lvert F_{Brownian}\rvert = \sqrt{4k_b T b_s B.W.} = \sqrt{\dfrac{4k_b T \omega_s m B.W.}{Q_s}}
+\label{eq:BrownianForce}
+\end{equation}
+
+\begin{equation}
+\lvert F_{Coriolis}\rvert = 2 m \lvert \dot{y} \rvert \Omega = 2 m \omega_d A_0 \Omega
+\label{eq:Coriolisforce}
+\end{equation}
+\begin{equation}
+2 m \omega_d A_0 \Omega = \sqrt{\dfrac{4k_b T \omega_s m B.W.}{Q_s}}
+\label{eq:brownequcori}
+\end{equation}
+\begin{equation}
+\dfrac{\Omega}{\sqrt{B.W.}} = \sqrt{\dfrac{k_b T \omega_s}{m Q_s A_0^2 \omega_d^2}}
+\label{eq:browniannoise}
+\end{equation}
+
+Our last consideration is that of the driving force. In equations * and * we see the capacitance, C, and stored energy, U, of a comb drive actuator.
 
 \section{Numerical Analysis}
 
