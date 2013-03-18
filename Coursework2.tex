@@ -1,3 +1,4 @@
+
 \documentclass[12pt,a4paper,titlepage]{article}
 \usepackage[ansinew]{inputenc}
 \usepackage{amsmath,amsfonts,amssymb,setspace,subfig,multirow,textcomp,booktabs,tabularx}
@@ -12,7 +13,78 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage{tikz,pst-plot}
 
-\bibliography{Memsdesign}
-\title{Microfabricated electrostatic actuators for hard disk drives - a case study}
+\bibliography{}
+\title{Microfabricated 2 degree of freedom gyroscope - a case study}
 \date{\today}
-\author{Anders Teigland\\ MPhil in Micro and Nanotechnology Enterprise \\ Dept of Material Science and Metallurgy\\University of Cambridge\\ email \texttt{at615@cam.ac.uk}\\ Module: NE 02 MEMS Design \\ Supervisor: Prof. Ashwin Seshia}
+\author{Anders Teigland\\ MPhil in Micro and Nanotechnology Enterprise \\ Dept of Material Science and Metallurgy\\ Trinity Hall, University of Cambridge\\ email \texttt{at615@cam.ac.uk}\\ Module: NE 02 MEMS Design \\ Supervisor: Prof. Ashwin Seshia}
+
+\begin{document}
+\begin{spacing}{1.1}
+\maketitle
+\section{Introduction}
+Gyroscopes are considered important devices in many household products. Amongst them are both the automotive industry, where gyroscopes are applied to improve both comfort and safety, and hand held devices like smart phones and tablets.
+
+Several designs of the gyroscope has been proposed, but all pose either reliability issues or very complex processing is required compared to designs utilising some sort of vibratory sensing. The vibratory design relies on the Coriolis force acting on a vibrating mass that is, most commonly, optically or capacitively sensed.
+
+In this paper we will optimise a design for a 2 degree of freedom (DOF) MEMS gyroscope. The design of such a device is shown in figure *. In the first part we will derive expressions for some of the parameters we will consider and apply some design constraints to these to arrive at a final design for the device.
+
+\section{Derivations of device operation}
+As we see from figure *, the device has beams acting as springs in both the drive and sense directions. We will consider these as cantilevers with a load applied to the end. Doing so yields the spring constant for a single beam expressed in * for a single beam. Expanding this into * we arrive at an expression for the spring constant of the total system in both drive and sense directions by assuming that the 4 beams are identical. In these expressions E is the Youngs modulus and w, h and l the width, height and length of the beams indicated on figure *.
+
+\begin{equation}
+k_{single beam} = \dfrac{1}{4} \dfrac{E h w^3}{l^3}
+\label{eq:ksinglebeam}
+\end{equation}
+\begin{equation}
+k_{i,total} = 4 k_{single beam} = \dfrac{E h w_i^3}{l_i^3}
+\label{eq:kyorx}
+\end{equation}
+
+With the proof mass oscillating in the drive direction one can describe the device as a 2-DOF vibratory system. The resulting equations of motions showed in * and *. Here, $\omega_i$ is the resonance frequency in the i direction, $Q_i = \dfrac{m_i \omega_i}{b_i}$ is the quality factor, $b_i$ the damping factor, $\Omega$ the external rotation frequency and $F_d$ the electrostatic driving force. d and s subscripts denote sense (\textbf{x}) and drive (\textbf{y}) directions, respectively.
+
+\begin{equation}
+\ddot{y}+\dfrac{\omega_d}{Q_d} \dot{y} + \omega^2 = \dfrac{F_d}{m} \sin(\omega_d t)
+\label{eq:motiondrivedirection}
+\end{equation}
+\begin{equation}
+\ddot{x} + \dfrac{\omega_s}{Q_s} \dot{x} + \omega^2 x + 2 \Omega \dot{y} = 0
+\label{eq:motionsensedirection}
+\end{equation}
+
+Since gyroscopes generally are underdamped, it is reasonable to assume that the drive direction amplitude can be modelled as below.
+
+\begin{equation}
+y(t) = A_0 \sin(\omega_d t) = Q_d \dfrac{F_d}{k_y}
+\label{eq:yamplitudeast}
+\end{equation}
+
+By solving the system of differential equations\footnote{These expressions were found using Mathematica.} above, we get the following expressions for the displacement and also a phase relative to the drive frequency.
+
+\begin{equation}
+x(t) = \dfrac{2 \Omega \cdot A_0 \omega_d}{\omega_s^2 \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}} \cdot \sin(\omega_d t - \varphi)
+\label{eq:xoftraw}
+\end{equation}
+\begin{equation}
+\varphi = \arctan \left(\dfrac{1}{Q_s \left(\dfrac{\omega_s}{\omega_d}- \dfrac{\omega_d}{\omega_s}\right)}\right)
+\label{eq:phase}
+\end{equation}
+
+\begin{equation}
+C(\omega) = \dfrac{1}{\omega_s^2 \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}}
+\label{eq:constant}
+\end{equation}
+
+\begin{equation}
+\lvert X \rvert = \dfrac{2 \cdot \Omega \cdot A_0 \cdot C (\omega)}{\omega_s^2}
+\label{eq:absolutedisplacementsense}
+\end{equation}
+
+In * we see the bandwidth of a gyroscope at resonance, and by inserting into \ref{eq:absolutedisplacementsense} we can analyse the bandwidth-sensitivity trade-off for the device.
+
+\section{Numerical Analysis}
+
+\section{Reiterations}
+
+\end{spacing}
+content...
+\end{document}
