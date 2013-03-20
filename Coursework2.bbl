@@ -1,0 +1,92 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Chang12}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Chang}{C.}%
+     {Chao-Min}{C.-M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Shao-Yu}{S.-Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Rongshun}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yeh}{Y.}%
+     {J~Andrew}{J.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hou}{H.}%
+     {Max~T}{M.~T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CCM+1}
+  \strng{fullhash}{CCMWSYCRYJAHMT1}
+  \verb{doi}
+  \verb 10.3390/s120810881
+  \endverb
+  \field{issue}{8}
+  \field{title}{A comb-drive actuator driven by capacitively-coupled-power}
+  \field{volume}{12}
+  \field{journaltitle}{Sensors}
+  \field{year}{2012}
+\endentry
+
+\entry{Bhushan97}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Bhushan}{B.}%
+     {B}{B}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {XD}{X.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BBLX1}
+  \strng{fullhash}{BBLX1}
+  \verb{doi}
+  \verb {10.1557/JMR.1997.0010}
+  \endverb
+  \field{issn}{{0884-2914}}
+  \field{number}{{1}}
+  \field{pages}{{54\bibrangedash 63}}
+  \field{title}{{Micromechanical and tribological characterization of doped
+  single-crystal silicon and polysilicon films for microelectromechanical
+  systems devices}}
+  \field{volume}{{12}}
+  \field{journaltitle}{{JOURNAL OF MATERIALS RESEARCH}}
+  \field{year}{{1997}}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

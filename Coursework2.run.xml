@@ -83,6 +83,7 @@
       <file>Coursework2-blx.bib</file>
     </requires>
     <requires type="editable">
+      <file>gyroscopebib.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

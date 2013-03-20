@@ -13,7 +13,7 @@
 \usepackage[flushleft]{threeparttable}
 \usepackage{tikz,pst-plot}
 
-\bibliography{}
+\bibliography{gyroscopebib}
 \title{Microfabricated 2 degree of freedom gyroscope - a case study}
 \date{\today}
 \author{Anders Teigland\\ MPhil in Micro and Nanotechnology Enterprise \\ Dept of Material Science and Metallurgy\\ Trinity Hall, University of Cambridge\\ email \texttt{at615@cam.ac.uk}\\ Module: NE 02 MEMS Design \\ Supervisor: Prof. Ashwin Seshia}
@@ -43,7 +43,7 @@ k_{i,total} = 4 k_{single beam} = \dfrac{E h w_i^3}{l_i^3}
 With the proof mass oscillating in the drive direction one can describe the device as a 2-DOF vibratory system. The resulting equations of motions showed in equations \ref{eq:motiondrivedirection} and \ref{eq:motionsensedirection}. Here, $\omega_i$ is the resonance frequency in the i direction, $Q_i = \dfrac{m_i \omega_i}{b_i}$ is the quality factor, $b_i$ the damping factor, $\Omega$ the external rotation frequency and $F_d$ the electrostatic driving force. d and s subscripts denote sense (\textbf{x}) and drive (\textbf{y}) directions, respectively.
 
 \begin{equation}
-\ddot{y}+\dfrac{\omega_d}{Q_d} \dot{y} + \omega^2 = \dfrac{F_d}{m} \sin(\omega_d t)
+\ddot{y}+\dfrac{\omega_d}{Q_d} \dot{y} + \omega_d^2 y = \dfrac{F_d}{m} \sin(\omega_d t)
 \label{eq:motiondrivedirection}
 \end{equation}
 \begin{equation}
@@ -112,12 +112,85 @@ In addition, we need to consider the noise in the system. In this case, thermal 
 \label{eq:browniannoise}
 \end{equation}
 
-Our last consideration is that of the driving force. In equations * and * we see the capacitance, C, and stored energy, U, of a comb drive actuator.
+Our last consideration is that of the driving force. In equations \ref{eq:combdrivecapacitance} and \ref{eq:capstoredenergy} we see the capacitance, $C$, and stored energy, $ U $, of a comb drive actuator, respectively. By differentiating the energy in the direction of movement of the actuator we get the expression for the force in equation \ref{eq:capforce}. In the following expressions, $\epsilon$ is the dielectric constant of the medium where the gyroscope operates, $l_0$ is the overlap length of the comb fingers, $h$ is the height of the fingers and, hence, the device, and $g_0$ is the nominal gap between the comb fingers and electrode as indicated on figure *.
+
+\begin{equation}
+C = \epsilon \dfrac{A_{overlap}}{g_0} = \epsilon \dfrac{2n \cdot (l_0 +y) h  }{g_0}
+\label{eq:combdrivecapacitance}
+\end{equation}
+\begin{equation}
+U = \dfrac{1}{2} C V^2
+\label{eq:capstoredenergy}
+\end{equation}
+\begin{equation}
+F = -\nabla U = - \dfrac{1}{2} \dfrac{\delta C}{\delta y} V^2 = -\dfrac{\epsilon \cdot n  \cdot h}{g_0} V^2
+\label{eq:capforce}
+\end{equation}
+
+By applying different voltages, $V_1 = V_0 + v(t)$ and $V_2 = V_0 - v(t)$, to the top and bottom electrodes one induces an effective force acting on the mass\supercite{Chang12}. Here $V_0$ is a DC bias and $v(t)$ an applied AC bias.
+
+\begin{equation}
+F_{drive} = F_{top} - F_{top} = -4\dfrac{\epsilon \cdot n  \cdot h}{g_0} V_o v(t)
+\end{equation} 
+
+
 
 \section{Numerical Analysis}
+To approach a functioning device we will now apply some of the design constraints to the derived expressions above to try to optimise device operation.In table \ref{tab:designconstraints}*, we see a summary of the design constraints that will be used below.
 
-\section{Reiterations}
+\begin{table}[htbp]
+\caption{Table showing some of the design constraints}
+\centering
+\begin{tabular}{l|r}
+\toprule
+Maximum design area (mm) & {2 x 2} \\ 
+Min dimensions of proof mass ($\mu$m) & {500 x 500} \\ 
+Min beam width ($\mu$m) & 2 \\ 
+Max beam deflection (\%) & 2 \\
+Thickness of structure ($\mu$m) & 6 \\ 
+Max flexure length($\mu$m) & 500 \\ 
+Min electrode gap ($\mu$m) & 0.5 \\ 
+Vertical gap between structure and substrate ($\mu$m) & 2 \\ \bottomrule
+\end{tabular}
+\label{tab:designconstraints}
+\end{table}
+
+\subsection{Flexure design}
+From equation \ref{eq:browniannoise}, it is evident that the Brownian noise in the system is highly dependent on the amplitude of the driving vibrations. As the beam deflection is limited to 2 \% of the beam length it is therefore reasonable to chose the longest possible beams of 500 $\mu$m. Furthermore, we see from equation \ref{eq:yamplitudeast} that the amplitude is inversely proportional to the mechanical spring constant in the drive direction, we therefore wish to minimise this quantity by choosing the minimum beam width of 2 $\mu$m with the thickness of the structure fixed at 6 $\mu$m and Youngs modulus of silicon of 130 GPa assuming that the bending is in the [100]-direction \supercite{Bhushan97}.
+
+\begin{equation}
+k_d = \dfrac{E h w_d^3}{l_d^3}= 0.05 Nm^{-1}
+\label{eq:drivespringconstant}
+\end{equation}
+
+Equation \ref{eq:drivespringconstant} along with the given resonance frequency in the drive direction makes it possible to calculate the proof mass as in equation \ref{eq:springconsttomass}.
+
+\begin{equation}
+\omega_d = \sqrt{\dfrac{k_d}{m}} \rightarrow m = \dfrac{k_d}{\omega_d^2} = 1.26 \cdot 10^{-11} kg
+\label{eq:springconsttomass}
+\end{equation}
+
+If we assume a quadratic, seen from the top, proof mass we can find the dimensions as seen in  equation \ref{eq:flexdimensionsfirst} below. Here, $\rho_Si$ is the density of silicon, $V$ the volume of the mass and $l_m$ the mass dimensions in the xy-plane of the device.
+
+\begin{equation}
+\rho_Si = \dfrac{m}{V} = \dfrac{m}{l_m^2 h} \leftrightarrow l_m = \sqrt{\dfrac{m}{\rho_Si h}} = 30 \mu m
+\label{eq:flexdimensionsfirst}
+\end{equation}
+
+As we see this result is far below the minimum mass dimensions and we will have to iterate our results to find suitable flexure dimensions. Furthermore, we will chose a rectangular proof mass with width 510 $\mu$m and the length maximised so that to mount the most electrodes possible on it. In table *, values for the 1st iteration are put.
+
+\begin{table}[htbp]
+\caption{Table showing iterated dimensions}
+\centering
+\begin{tabular}{lllllll}
+\toprule
+$w_d [\mu m]$ & $l_d [\mu m]$ & $k_d$[N/m] & m [$\mu g$] & $w_mass [\mu g]$ & $l_mass [\mu m]$ & $A_0 [\mu m]$ \\ \midrule
+\multicolumn{1}{r}{5} & \multicolumn{1}{r}{130} & \multicolumn{1}{r}{44.38} & \multicolumn{1}{r}{11.2} & \multicolumn{1}{r}{510} & \multicolumn{1}{r}{1530} & \multicolumn{1}{r}{2.6} \\ \bottomrule
+\end{tabular}
+\label{tab:1stiteration}
+\end{table}
+
 
 \end{spacing}
-content...
+\printbibliography
 \end{document}
