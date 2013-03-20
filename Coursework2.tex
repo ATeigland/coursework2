@@ -190,6 +190,18 @@ $w_d [\mu m]$ & $l_d [\mu m]$ & $k_d$[N/m] & m [$\mu g$] & $w_mass [\mu g]$ & $l
 \label{tab:1stiteration}
 \end{table}
 
+By assuming that the support structure has negligible weight we now can calculate the flexure dimensions in the sense direction. To minimize the flexure length, $l_s$, we chose the minimum flexure width of 2 $\mu$m.
+
+\begin{equation}
+l_s = \sqrt[3]{\dfrac{E t w_s^3}{m \omega^2} } =
+\label{eq:senselength}
+\end{equation}
+
+We have chosen a resonance frequency in the sense direction that is slightly off-set from the one in the drive direction. This is done to increase the gyroscope's robustness, in fact an off-set like this makes it possible to control the bandwidth in a dynamic response. If the two resonance frequencies are matched there is a danger that the sensor will become insensitive to changes in the rotational frequency.
+
+\subsection{Actuator force and Damping}
+
+
 
 \end{spacing}
 \printbibliography
