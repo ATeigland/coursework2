@@ -177,14 +177,14 @@ If we assume a quadratic, seen from the top, proof mass we can find the dimensio
 \label{eq:flexdimensionsfirst}
 \end{equation}
 
-As we see this result is far below the minimum mass dimensions and we will have to iterate our results to find suitable flexure dimensions. Furthermore, we will chose a rectangular proof mass with width 510 $\mu$m and the length maximised so that to mount the most electrodes possible on it. In table *, values for the 1st iteration are put.
+As we see this result is far below the minimum mass dimensions and we will have to iterate our results to find suitable flexure dimensions. Furthermore, we will chose a rectangular proof mass with width 510 $\mu$m and the length maximised so that to mount the most electrodes possible on it. In table \ref{tab:1stiteration}, values for the 1st iteration are put.
 
 \begin{table}[htbp]
 \caption{Table showing iterated dimensions}
 \centering
 \begin{tabular}{lllllll}
 \toprule
-$w_d [\mu m]$ & $l_d [\mu m]$ & $k_d$[N/m] & m [$\mu g$] & $w_mass [\mu g]$ & $l_mass [\mu m]$ & $A_0 [\mu m]$ \\ \midrule
+$w_d [\mu m]$ & $l_d [\mu m]$ & $k_d$[N/m] & m [$\mu g$] & $w_{mass} [\mu g]$ & $l_{mass} [\mu m]$ & $A_0 [\mu m]$ \\ \midrule
 \multicolumn{1}{r}{5} & \multicolumn{1}{r}{130} & \multicolumn{1}{r}{44.38} & \multicolumn{1}{r}{11.2} & \multicolumn{1}{r}{510} & \multicolumn{1}{r}{1530} & \multicolumn{1}{r}{2.6} \\ \bottomrule
 \end{tabular}
 \label{tab:1stiteration}
@@ -201,8 +201,42 @@ We have chosen a resonance frequency in the sense direction that is slightly off
 
 \subsection{Actuator force and Damping}
 
+We still have to consider the driving force and optimise the electrode arrangement. To do this we will also have to consider the damping, and, hence the Q-factor, of the system, specially in the drive direction.
 
+We will assume that the damping is dominated by Couette flow between the proof mass and the substrate. The equation for this is shown below (\ref{eq:drivedamping}) and using the data from table \ref{tab:1stiteration} and the separation of the mass and substrate of 2 $\mu$m along with the viscosity of air at room temperature, $\eta$, of 1.8 kg/m$\cdot$ s. This allows us to estimate the quality factor in the drive direction as shown in equation \ref{eq:Qfactordrivecalc1}
 
+\begin{equation}
+b_d = \dfrac{\eta A_{mass}}{h}= \dfrac{\eta l_d w_d}{h} = 7.03\cdot 10^{-6} kg \cdot s^{-1}
+\label{eq:drivedamping}
+\end{equation}
+
+\begin{equation}
+Q_d = \dfrac{m_d \omega_d}{b_d} = 100.53
+\label{eq:Qfactordrivecalc1}
+\end{equation}
+
+To improve on the results above, we will now consider the damping due to the comb-drive fingers moving in and out of the gap. Once again we will assume that Couette flow is dominant and that we want to maximise the force and therefore minimize the electrode gap, $g_0$. The length of the comb fingers is set to 5.3 $\mu$m to allow for the maximum amplitude of the vibrations and gaps of 0.5 $\mu$m to avoid short circuiting the system. The width of the fingers is set at 2 $\mu$m to maximize the amount of fingers one can place on each side of the proof mass.
+
+\begin{equation}
+F_d = A_0 \dfrac{k_d}{Q_d} = 1.15 \mu N
+\label{eq:driveforce1stapprox}
+\end{equation}
+
+\begin{equation}
+n = \dfrac{F_d g_0}{4 \epsilon h V_{AC} V_{DC} } = 270
+\label{eq:fingers1st}
+\end{equation}
+
+\begin{equation}
+n_{max}= \dfrac{l_{mass}}{l_{electrode}} = 306
+\label{eq:fingersmax}
+\end{equation}
+
+As we see from equations \ref{eq:fingers1st} and \ref{eq:fingersmax}, there is a need for 270 fingers to achieve the force required and that this is possible to fit in on the side of the proof mass. However, damping from these fingers becomes important and we will need to consider this in order to find a more accurate expression for the damping. Assuming that damping of the fingers is dominated by Couette flow we arrive at equation * for the total damping. Note here that the number of fingers now will both affect damping and the maximum driving force, equation \ref{eq:capforce}. We will assume that the overlap along the drive direction is equal to two times the amplitude, $A_0 = 5.2 \mu m$.
+
+\begin{equation}
+b_{tot} = 
+\end{equation}
 \end{spacing}
 \printbibliography
 \end{document}
