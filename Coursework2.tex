@@ -112,10 +112,10 @@ In addition, we need to consider the noise in the system. In this case, thermal 
 \label{eq:browniannoise}
 \end{equation}
 
-Our last consideration is that of the driving force. In equations \ref{eq:combdrivecapacitance} and \ref{eq:capstoredenergy} we see the capacitance, $C$, and stored energy, $ U $, of a comb drive actuator, respectively. By differentiating the energy in the direction of movement of the actuator we get the expression for the force in equation \ref{eq:capforce}. In the following expressions, $\epsilon$ is the dielectric constant of the medium where the gyroscope operates, $l_0$ is the overlap length of the comb fingers, $h$ is the height of the fingers and, hence, the device, and $g_0$ is the nominal gap between the comb fingers and electrode as indicated on figure *.
+Our last consideration is that of the driving force. In equations \ref{eq:combdrivecapacitance} and \ref{eq:capstoredenergy} we see the capacitance, $C$, and stored energy, $ U $, of a comb drive actuator, respectively. By differentiating the energy in the direction of movement of the actuator we get the expression for the force in equation \ref{eq:capforce}. In the following expressions, $\epsilon$ is the dielectric constant of the medium where the gyroscope operates, $l_0$ is the overlap length of the comb fingers, $h$ is the height of the fingers and, hence, the device, N is the total number of electrodes and $g_0$ is the nominal gap between the comb fingers and electrode as indicated on figure *.
 
 \begin{equation}
-C = \epsilon \dfrac{A_{overlap}}{g_0} = \epsilon \dfrac{2n \cdot (l_0 +y) h  }{g_0}
+C = \epsilon \dfrac{A_{overlap}}{g_0} = \epsilon \dfrac{2N \cdot (l_0 +y) h  }{g_0}
 \label{eq:combdrivecapacitance}
 \end{equation}
 \begin{equation}
@@ -123,14 +123,14 @@ U = \dfrac{1}{2} C V^2
 \label{eq:capstoredenergy}
 \end{equation}
 \begin{equation}
-F = -\nabla U = - \dfrac{1}{2} \dfrac{\delta C}{\delta y} V^2 = -\dfrac{\epsilon \cdot n  \cdot h}{g_0} V^2
+F = -\nabla U = - \dfrac{1}{2} \dfrac{\delta C}{\delta y} V^2 = -\dfrac{\epsilon \cdot N  \cdot h}{g_0} V^2
 \label{eq:capforce}
 \end{equation}
 
 By applying different voltages, $V_1 = V_0 + v(t)$ and $V_2 = V_0 - v(t)$, to the top and bottom electrodes one induces an effective force acting on the mass\supercite{Chang12}. Here $V_0$ is a DC bias and $v(t)$ an applied AC bias.
 
 \begin{equation}
-F_{drive} = F_{top} - F_{top} = -4\dfrac{\epsilon \cdot n  \cdot h}{g_0} V_o v(t)
+F_{drive} = F_{top} - F_{bottom} = -4\dfrac{\epsilon \cdot \dfrac{N}{2}  \cdot h}{g_0} V_o v(t)
 \end{equation} 
 
 
@@ -223,20 +223,55 @@ F_d = A_0 \dfrac{k_d}{Q_d} = 1.15 \mu N
 \end{equation}
 
 \begin{equation}
-n = \dfrac{F_d g_0}{4 \epsilon h V_{AC} V_{DC} } = 270
+N/2 = \dfrac{F_d g_0}{4 \epsilon h V_{AC} V_{DC} } = 270
 \label{eq:fingers1st}
 \end{equation}
 
 \begin{equation}
-n_{max}= \dfrac{l_{mass}}{l_{electrode}} = 306
+N/2_{max}= \dfrac{l_{mass}}{l_{electrode}} = 306
 \label{eq:fingersmax}
 \end{equation}
 
-As we see from equations \ref{eq:fingers1st} and \ref{eq:fingersmax}, there is a need for 270 fingers to achieve the force required and that this is possible to fit in on the side of the proof mass. However, damping from these fingers becomes important and we will need to consider this in order to find a more accurate expression for the damping. Assuming that damping of the fingers is dominated by Couette flow we arrive at equation * for the total damping. Note here that the number of fingers now will both affect damping and the maximum driving force, equation \ref{eq:capforce}. We will assume that the overlap along the drive direction is equal to two times the amplitude, $A_0 = 5.2 \mu m$.
+As we see from equations \ref{eq:fingers1st} and \ref{eq:fingersmax}, there is a need for 270 fingers each side of the proof mass to achieve the force required and that this is possible to fit in on the side of the proof mass. However, damping from these fingers becomes important and we will need to consider this in order to find a more accurate expression for the damping. Assuming that damping of the fingers is dominated by Couette flow we arrive at equation * for the total damping. Note here that the number of fingers now will both affect damping and the maximum driving force, equation \ref{eq:capforce}. We will assume that the overlap along the drive direction is equal to two times the amplitude, $l_0 = 2A_0 = 5.2 \mu m$, to allow the proof mass to complete it's cycles.
 
 \begin{equation}
-b_{tot} = 
+b_{tot} = \eta \dfrac{A_mass}{h} + \eta \dfrac{4 \dfrac{N}{2} t l_0}{g_0}
+\label{eq:dampingwithcomb}
 \end{equation}
+
+The damping factor now depends on the number of combs which will change with a changing quality factor. We will therefore need to enter this into the equation for the quality factor, $Q_d$, to calculate the optimal number of comb fingers.
+
+\begin{equation}
+N/2 = \dfrac{g_0 A_0 k_d \eta A_{mass}}{ht(4 \epsilon_0 V_DC V_AC \omega_d m - A_0 k_d \eta 4 A_0)} = 296
+\label{eq:comfingers2ndit}
+\end{equation}
+
+The number of fingers calculated above still is below the maximum per half. To minimise the power consumption we could optimize the device set-up with regards to the voltages used, but as we are pretty close to the maximum value the direct current could not be inferior to 9.97 V, meaning one could only possibly save 3 \% of the total power consumption. In the following calculation we have therefore used the number of comb drives as calculated above.
+
+Below, we calculate the new Q$_d$:
+
+\begin{equation}
+Q_d = \dfrac{\omega_d m}{\eta \left(\dfrac{4N A_0t}{g_0} + \dfrac{A_{mass}}{h}\right)}= 84.5
+\label{eq:qualityfactorit}
+\end{equation}
+
+So far, we have considered the comb fingers to be massless. To adjust our calculations we will now consider the weight of the comb fingers with a length of 5.3 $\mu$m and a width of 2 $\mu$m. The additional mass is shown in equation *, which leads us to recalculate the width of the mass in equation *.
+
+\begin{equation}
+m_{comb fingers} = N w_{finger} t l_finger \rho_Si = 9.04 \cdot 10^{-11} kg
+\label{eq:masscombfingers}
+\end{equation}
+
+\begin{equation}
+w_mass = \dfrac{m_{tot} - m_fingers}{\rho_{Si} t l_{mass}}
+\label{eq:widthfinal}
+\end{equation}
+
+
+
+
+
+
 \end{spacing}
 \printbibliography
 \end{document}
