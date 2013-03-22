@@ -16,6 +16,93 @@
   {}
 \endgroup
 
+\entry{Xie03}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Xie}{X.}%
+     {HK}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Fedder}{F.}%
+     {GK}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{XHFG1}
+  \strng{fullhash}{XHFG1}
+  \field{abstract}{%
+  {Microelectromechanical (MEMS) gyroscopes have wide-ranging applications
+  including automotive and consumer electronics markets. Among them,
+  complementary metal-oxide semiconductor-compatible MEMS gyroscopes enable
+  integration of signal conditioning circuitry, multiaxis integration, small
+  size, and low cost. This paper reviews various designs and fabrication
+  processes for integrated MEMS gyroscopes and compares their performance.
+  Operational principles and design issues of MEMS vibratory gyroscopes are
+  also addressed.}%
+  }
+  \verb{doi}
+  \verb {10.1061/(ASCE)0893-1321(2003)16:2(65)}
+  \endverb
+  \field{issn}{{0893-1321}}
+  \field{number}{{2}}
+  \field{pages}{{65\bibrangedash 75}}
+  \field{title}{{Integrated microelectromechanical gyroscopes}}
+  \field{volume}{{16}}
+  \field{journaltitle}{{JOURNAL OF AEROSPACE ENGINEERING}}
+  \field{year}{{2003}}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{Clark96}{inproceedings}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Clark}{C.}%
+     {W.A.}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Howe}{H.}%
+     {R.T.}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Horowitz}{H.}%
+     {R.}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {{Tranducers Res. Found}}%
+  }
+  \strng{namehash}{CWHRHR1}
+  \strng{fullhash}{CWHRHR1}
+  \field{abstract}{%
+  {We have designed and tested the first polysilicon surface micromachined
+  vibratory rate gyroscope that is sensitive to angular rotation about an axis
+  normal to the plane of the silicon chip, the Z-axis. The Analog Devices, Inc.
+  BiMEMS technology was used to fabricate the gyroscope, which has as a
+  demonstrated minimum detectable signal of 1 deg/sec/Hz frac12 with
+  performance projected to improve to 0.1 deg/sec/Hz frac12 in a
+  second-generation BiMEMS design. Our design makes use of electrostatics to
+  improve performance considerably. Electrostatic frequency tuning of the sense
+  mode is used to enhance sensitivity. Quadrature error due to asymmetries in
+  the vibrating structure is nulled by detecting the resulting motion and
+  applying electrostatic forces by modifying voltages on the interdigitated
+  sense comb fingers to cancel error precisely }%
+  }
+  \field{booktitle}{{Technical Digest. Solid-State Sensor and Actuator Workshop
+  }}
+  \field{isbn}{{0 9640024 1 8}}
+  \field{note}{{Technical Digest Solid-State Sensor and Actuator Workshop, 3-6
+  June 1996, Hilton Head Island, SC, USA}}
+  \field{pages}{{283\bibrangedash 7}}
+  \field{title}{{Surface micromachined Z-axis vibratory rate gyroscope}}
+  \field{type}{{Conference Paper}}
+  \field{year}{{1996}}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
 \entry{Chang12}{article}{}
   \name{author}{5}{}{%
     {{}%
@@ -84,6 +171,52 @@
   \field{journaltitle}{{JOURNAL OF MATERIALS RESEARCH}}
   \field{year}{{1997}}
   \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{An99}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {An}{A.}%
+     {S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Oh}{O.}%
+     {Y.S.}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Park}{P.}%
+     {K.Y.}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lee}{L.}%
+     {S.S.}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Song}{S.}%
+     {C.M.}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{Dual-axis}
+  \strng{namehash}{AS+1}
+  \strng{fullhash}{ASOYPKLSSC1}
+  \verb{doi}
+  \verb 10.1016/S0924-4247(98)00247-7
+  \endverb
+  \field{issn}{0924-4247}
+  \field{number}{1 - 2}
+  \field{pages}{1 \bibrangedash  6}
+  \field{title}{Dual-axis microgyroscope with closed-loop detection}
+  \verb{url}
+  \verb http://www.sciencedirect.com/science/article/pii/S0924424798002477
+  \endverb
+  \field{volume}{73}
+  \field{journaltitle}{Sensors and Actuators A: Physical}
+  \field{year}{1999}
 \endentry
 
 \lossort

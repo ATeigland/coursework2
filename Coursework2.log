@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.20)  21 MAR 2013 10:20
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.20)  22 MAR 2013 10:41
 entering extended mode
 **Coursework2.tex
 ("C:\Users\HP\cambridge\Essays\Latex\MEMS design\coursework2\Coursework2.tex"
@@ -1019,6 +1019,16 @@ Package biblatex Info: ... file 'Coursework2.bbl' found.
 ("C:\Users\HP\cambridge\Essays\Latex\MEMS design\coursework2\Coursework2.bbl"
 
 Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Xie03':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Clark96':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'Bhushan97':
 (biblatex)                - Invalid format of field 'month'.
 
@@ -1044,36 +1054,54 @@ Non-PDF special ignored!
 
 Non-PDF special ignored!
 Non-PDF special ignored!{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-[1] [2] [3] [4] [5] [6]
+<Design.jpg, id=11, 511.6716pt x 342.5598pt>
+File: Design.jpg Graphic file (type jpg)
+ <use Design.jpg>
+Package pdftex.def Info: Design.jpg used on input line 32.
+(pdftex.def)             Requested size: 386.95897pt x 259.07274pt.
+
+<capadesign.jpg, id=12, 778.3479pt x 444.4605pt>
+File: capadesign.jpg Graphic file (type jpg)
+ <use capadesign.jpg>
+Package pdftex.def Info: capadesign.jpg used on input line 39.
+(pdftex.def)             Requested size: 386.95897pt x 220.96149pt.
+ [1 <C:/Users/HP/cambridge/Essays/Latex/MEMS design/coursework2/Design.jpg>] [2
+ <C:/Users/HP/cambridge/Essays/Latex/MEMS design/coursework2/capadesign.jpg>]
+Overfull \vbox (1.8013pt too high) has occurred while \output is active []
+
+
+[3] [4] [5] [6] [7] [8] [9] [10]
 ("C:\Users\HP\cambridge\Essays\Latex\MEMS design\coursework2\Coursework2.aux")
 Package logreq Info: Writing requests to 'Coursework2.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 19690 strings out of 494045
- 345678 string characters out of 3148395
- 665131 words of memory out of 3000000
- 22612 multiletter control sequences out of 15000+200000
+ 19720 strings out of 494045
+ 346183 string characters out of 3148395
+ 666131 words of memory out of 3000000
+ 22638 multiletter control sequences out of 15000+200000
  14386 words of font info for 56 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 56i,10n,74p,852b,981s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,10n,74p,852b,1238s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmtt12.pfb>
-Output written on Coursework2.pdf (7 pages, 198236 bytes).
+fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.p
+fb>
+Output written on Coursework2.pdf (11 pages, 509732 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

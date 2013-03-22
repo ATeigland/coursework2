@@ -22,14 +22,26 @@
 \begin{spacing}{1.1}
 \maketitle
 \section{Introduction}
-Gyroscopes are considered important devices in many household products. Amongst them are both the automotive industry, where gyroscopes are applied to improve both comfort and safety, and hand held devices like smart phones, tablets and in devices with image stabilization.
+Gyroscopes are considered important devices in many household products. Amongst them are both the automotive industry, where gyroscopes are applied to improve both comfort and safety, and hand held devices like smart phones, tablets and in devices with image stabilization\cite{Xie03}.
 
 Several designs of the gyroscope has been proposed, but all pose either reliability issues or very complex processing is required compared to designs utilising some sort of vibratory sensing. The vibratory design relies on the Coriolis force acting on a vibrating mass that is, most commonly, optically or capacitively sensed.
 
-In this paper we will optimise a design for a 2 degree of freedom (DOF) MEMS gyroscope. The design of such a device is shown in figure *. In the first part we will derive expressions for some of the parameters we will consider and apply some design constraints to these to arrive at a final design for the device.
+In this paper we will optimise a design for a 2 degree of freedom (DOF) MEMS gyroscope. The design of such a device is shown in figure \ref{fig:design}. In the first part we will derive expressions for some of the parameters we will consider and apply some design constraints to these to arrive at a final design for the device. From the figure it is reasonable to believe that there will be used an optical system to measure the displacement in the sense mode. A design using capacitive sensing is also sketched in figure \ref{fig:capadesign}.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\linewidth]{Design}
+\caption{The proposed design of a 2-DOF gyroscope.}
+\label{fig:design}
+\end{figure}
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\linewidth]{capadesign}
+\caption{A 2-DOF design with capacitive sensing. From \cite{Clark96}}
+\label{fig:capadesign}
+\end{figure}
 \section{Derivations of device operation}
-As we see from figure *, the device has beams acting as springs in both the drive and sense directions. We will consider these as cantilevers with a load applied to the end. Doing so yields the spring constant for a single beam expressed in equation \ref{eq:ksinglebeam} for a single beam. Expanding this into equation \ref{eq:kyorx} for the drive or sense directions, we arrive at an expression for the spring constant of the total system in both drive and sense directions by assuming that the 4 beams acting in each direction are identical. In these expressions E is the Youngs modulus and w, h and l the width, height and length of the beams indicated on figure *.
+As we see from figure \ref{fig:design}, the device has beams acting as springs in both the drive and sense directions. We will consider these as cantilevers with a load applied to the end. Doing so yields the spring constant for a single beam expressed in equation \ref{eq:ksinglebeam} for a single beam. Expanding this into equation \ref{eq:kyorx} for the drive or sense directions, we arrive at an expression for the spring constant of the total system in both drive and sense directions by assuming that the 4 beams acting in each direction are identical. In these expressions E is the Youngs modulus and w, h and l the width, height and length of the beams in either the sensing or drive direction.
 
 \begin{equation}
 k_{single beam} = \dfrac{1}{4} \dfrac{E h w^3}{l^3}
@@ -63,16 +75,16 @@ By solving the system of differential equations\footnote{These expressions were 
 above, we get the following expressions for the displacement and also a phase relative to the drive frequency.
 
 \begin{equation}
-x(t) = \dfrac{2 \Omega \cdot A_0 \omega_d}{\omega_s^2 \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}} \cdot \sin(\omega_d t - \varphi)
+x(t) = \dfrac{2 \Omega \cdot A_0 \omega_d}{\omega_s^2 \sqrt{\left(1-\left(\frac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\frac{\omega_d}{Q_s\cdot \omega_s}\right)}} \cdot \sin(\omega_d t - \varphi)
 \label{eq:xoftraw}
 \end{equation}
 \begin{equation}
-\varphi = \arctan \left(\dfrac{1}{Q_s \left(\dfrac{\omega_s}{\omega_d}- \dfrac{\omega_d}{\omega_s}\right)}\right)
+\varphi = \arctan \left(\dfrac{1}{Q_s \left(\frac{\omega_s}{\omega_d}- \frac{\omega_d}{\omega_s}\right)}\right)
 \label{eq:phase}
 \end{equation}
 
 \begin{equation}
-C(\omega) = \dfrac{1}{ \sqrt{\left(1-\left(\dfrac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\dfrac{\omega_d}{Q_s\cdot \omega_s}\right)}}
+C(\omega) = \dfrac{1}{ \sqrt{\left(1-\left(\frac{\omega_d}{\omega_s}\right)^2\right)^2 + \left(\frac{\omega_d}{Q_s\cdot \omega_s}\right)}}
 \label{eq:constant}
 \end{equation}
 
@@ -112,7 +124,7 @@ In addition, we need to consider the noise in the system. In this case, thermal 
 \label{eq:browniannoise}
 \end{equation}
 
-Our last consideration is that of the driving force. In equations \ref{eq:combdrivecapacitance} and \ref{eq:capstoredenergy} we see the capacitance, $C$, and stored energy, $ U $, of a comb drive actuator, respectively. By differentiating the energy in the direction of movement of the actuator we get the expression for the force in equation \ref{eq:capforce}. In the following expressions, $\epsilon$ is the dielectric constant of the medium where the gyroscope operates, $l_0$ is the overlap length of the comb fingers, $h$ is the height of the fingers and, hence, the device, N is the total number of electrodes and $g_0$ is the nominal gap between the comb fingers and electrode as indicated on figure *.
+Our last consideration is that of the driving force. In equations \ref{eq:combdrivecapacitance} and \ref{eq:capstoredenergy} we see the capacitance, $C$, and stored energy, $ U $, of a comb drive actuator, respectively. By differentiating the energy in the direction of movement of the actuator we get the expression for the force in equation \ref{eq:capforce}. In the following expressions, $\epsilon$ is the dielectric constant of the medium where the gyroscope operates, $l_0$ is the overlap length of the comb fingers, $h$ is the height of the fingers and, hence, the device, N is the total number of electrodes and $g_0$ is the nominal gap between the comb fingers and electrode as indicated on figure \ref{fig:design}.
 
 \begin{equation}
 C = \epsilon \dfrac{A_{overlap}}{g_0} = \epsilon \dfrac{2N \cdot (l_0 +y) h  }{g_0}
@@ -130,13 +142,13 @@ F = -\nabla U = - \dfrac{1}{2} \dfrac{\delta C}{\delta y} V^2 = -\dfrac{\epsilon
 By applying different voltages, $V_1 = V_0 + v(t)$ and $V_2 = V_0 - v(t)$, to the top and bottom electrodes one induces an effective force acting on the mass\supercite{Chang12}. Here $V_0$ is a DC bias and $v(t)$ an applied AC bias.
 
 \begin{equation}
-F_{drive} = F_{top} - F_{bottom} = -4\dfrac{\epsilon \cdot \dfrac{N}{2}  \cdot h}{g_0} V_o v(t)
+F_{drive} = F_{top} - F_{bottom} = -4\dfrac{\epsilon \cdot \frac{N}{2}  \cdot h}{g_0} V_o v(t)
 \end{equation} 
 
 
 
 \section{Numerical Analysis}
-To approach a functioning device we will now apply some of the design constraints to the derived expressions above to try to optimise device operation.In table \ref{tab:designconstraints}*, we see a summary of the design constraints that will be used below.
+To approach a functioning device we will now apply some of the design constraints to the derived expressions above to try to optimise device operation.In table \ref{tab:designconstraints}, we see a summary of the design constraints that will be used below.
 
 \begin{table}[htbp]
 \caption{Table showing some of the design constraints}
@@ -232,10 +244,10 @@ N/2_{max}= \dfrac{l_{mass}}{l_{electrode}} = 306
 \label{eq:fingersmax}
 \end{equation}
 
-As we see from equations \ref{eq:fingers1st} and \ref{eq:fingersmax}, there is a need for 270 fingers each side of the proof mass to achieve the force required and that this is possible to fit in on the side of the proof mass. However, damping from these fingers becomes important and we will need to consider this in order to find a more accurate expression for the damping. Assuming that damping of the fingers is dominated by Couette flow we arrive at equation * for the total damping. Note here that the number of fingers now will both affect damping and the maximum driving force, equation \ref{eq:capforce}. We will assume that the overlap along the drive direction is equal to two times the amplitude, $l_0 = 2A_0 = 5.2 \mu m$, to allow the proof mass to complete it's cycles.
+As we see from equations \ref{eq:fingers1st} and \ref{eq:fingersmax}, there is a need for 270 fingers each side of the proof mass to achieve the force required and that this is possible to fit in on the side of the proof mass. However, damping from these fingers becomes important and we will need to consider this in order to find a more accurate expression for the damping. Assuming that damping of the fingers is dominated by Couette flow we arrive at equation \ref{eq:dampingwithcomb} for the total damping. Note here that the number of fingers now will both affect damping and the maximum driving force, equation \ref{eq:capforce}. We will assume that the overlap along the drive direction is equal to two times the amplitude, $l_0 = 2A_0 = 5.2 \mu m$, to allow the proof mass to complete it's cycles.
 
 \begin{equation}
-b_{tot} = \eta \dfrac{A_mass}{h} + \eta \dfrac{4 \dfrac{N}{2} t l_0}{g_0}
+b_{tot} = \eta \dfrac{A_mass}{h} + \eta \dfrac{4 \frac{N}{2} t l_0}{g_0}
 \label{eq:dampingwithcomb}
 \end{equation}
 
@@ -251,11 +263,11 @@ The number of fingers calculated above still is below the maximum per half. To m
 Below, we calculate the new Q$_d$:
 
 \begin{equation}
-Q_d = \dfrac{\omega_d m}{\eta \left(\dfrac{4N A_0t}{g_0} + \dfrac{A_{mass}}{h}\right)}= 84.5
+Q_d = \dfrac{\omega_d m}{\eta \left(\frac{4N A_0t}{g_0} + \frac{A_{mass}}{h}\right)}= 84.5
 \label{eq:qualityfactorit}
 \end{equation}
 
-So far, we have considered the comb fingers to be massless. To adjust our calculations we will now consider the weight of the comb fingers with a length of 5.3 $\mu$m and a width of 2 $\mu$m. The additional mass is shown in equation *, which leads us to recalculate the width of the mass in equation *.
+So far, we have considered the comb fingers to be massless. To adjust our calculations we will now consider the weight of the comb fingers with a length of 5.3 $\mu$m and a width of 2 $\mu$m. The additional mass is shown in equation \ref{eq:masscombfingers}, which leads us to recalculate the width of the mass in equation \ref{eq:widthfinal}.
 
 \begin{equation}
 m_{comb fingers} = N w_{finger} t l_finger \rho_Si = 9.04 \cdot 10^{-11} kg
@@ -263,11 +275,60 @@ m_{comb fingers} = N w_{finger} t l_finger \rho_Si = 9.04 \cdot 10^{-11} kg
 \end{equation}
 
 \begin{equation}
-w_mass = \dfrac{m_{tot} - m_fingers}{\rho_{Si} t l_{mass}}
+w_mass = \dfrac{m_{tot} - m_fingers}{\rho_{Si} t l_{mass}} = 506 \mu m
 \label{eq:widthfinal}
 \end{equation}
 
+Putting the new dimensions into the equations for number of fingers and quality factor above changes neither and we will therefore stick with these dimensions for the next parts.
 
+\subsection{Sense mode calculations and Brownian noise}
+We will now look at the calculations in the sense mode. First, let us look at the damping factor. As we use an optical measuring system, there is no need for additional electrodes and we only have to consider the damping due to the proof mass and comb fingers. The damping is dominated by two effects, namely Couette flow between the proof mass and substrate and squeeze film flow between the comb fingers and fixed electrodes. In equation \ref{eq:dampingsense}, we see an expression for the damping in the sense direction. We assume that the average overlap between the fingers and fixed electrodes is equal to the amplitude of vibration, $A_0$.
+
+\begin{equation}
+b_s = \dfrac{\eta A_{mass}}{h} + \dfrac{2N \cdot 96 \cdot \eta\cdot t \cdot l_o^3}{\pi^4 \cdot g_0^3}= 2.47 \cdot 10^-5
+\label{eq:dampingsense}
+\end{equation}
+
+\begin{equation}
+Q_s = \dfrac{m \omega_s}{b_s} = 31
+\end{equation}
+
+We now can consider the thermal noise in the system at room temperature by using equation \ref{eq:browniannoise}.
+
+\begin{equation}
+\dfrac{\Omega_z}{\sqrt{B.W.}} = 1.74\cdot 10^{-4} rad/s/\sqrt{Hz}= 0.59 ^\circ /min/\sqrt{Hz}
+\label{eq:browniannoiseactual}
+\end{equation}
+
+This value is well below the limit of 1 deg/min/$\sqrt{Hz}$ and we may therefore use this design.
+
+Using equation \ref{eq:absolutedisplacementsense} we can calculate the displacement in the sense direction. We will assume a constant rotation about the z-axis of 1 deg/s when calculating this displacement.
+
+\begin{equation}
+\lvert X \rvert = \dfrac{2 \cdot 1 ^\circ /s \frac{2 \pi}{360^\circ} \cdot 2.6\mu m \cdot (2\pi \cdot kHz)}{(2\pi\cdot 11 kHz)^2\sqrt{(1-\frac{10}{11})^2 + (\frac{10}{11\cdot 31})^2}} = 2.86 pm
+\label{eq:sensedisplacement}
+\end{equation}
+
+This displacement is very small and, as we see in equation \ref{eq:displacementcomp} below, if we compare it to the driven displacement it becomes even smaller.
+
+\begin{equation}
+\dfrac{\lvert X \rvert}{\lvert Y \rvert}/\Omega_z = 1.1\cdot 10^{-6} /^\circ/s
+\label{eq:displacementcomp}
+\end{equation}
+
+The consequence of this finding is that the device read out is very vulnerable to coupling of the drive and Coriolis induced motions. For the device fabrication this has the implication that one needs to have an entirely decoupled motion in the sense and drive directions and, hence, no fabrication imperfections can be tolerated. If this is not done, the coupling would induce noise that easily could overwhelm the induced oscillations.
+
+\subsection{Additional objectives to real gyroscopes}
+Real life gyroscopes would probably be subjected to less strict spatial demands, but would have to serve additional objectives. For instance, the sensing of the displacement would have to be very sophisticated and would probably merit a large capacitive area sensing electrodes as shown in figure \ref{fig:capadesign} and more sensitive gyroscopes could be optimized to sense the rate of change of the rotation as well as a constant rotation rate. Furthermore, the device is required to operate for long periods of time with constant device performance.
+
+These requirements once again states that imperfections in the fabrication process has to be avoided. In fact, inaccuracies in the fabrication process like over-etching or inaccurate lithography processes could potentially cause so big fluctuations in device performance that the device would be rendered non-operational.
+
+\section{Possible device improvements}
+In this section we will briefly look at which design choices one could possibly make to improve its' overall performance. The easiest way of improving the device would be to make the device more symmetric and reduce the coupling of the drive and sense modes. To do this, one would have to increase the power input which would be undesirable in, for instance, mobile applications. 
+
+More impertinent is the fact that most of our considerations so far have been very crude, both when considering the damping and the electrostatics. Numerical simulations and modelling would offer great improvement to the actual performance. More accurate simulations could also help identify where in the fabrication process the errors are mostly affecting performance.
+
+Lastly, an improvement to the 2-DOF design could be to introduce more degrees of freedom by adding a passive proof mass amplifying the driven mass' movement. This would relax the need for mode matching allowing the drive and sense mode to be tuned separately. It is also possible to expand the device to sense rotation about several axis on one chip which could potentially greatly improve the performance of the gyroscope\cite{An99}.
 
 
 
